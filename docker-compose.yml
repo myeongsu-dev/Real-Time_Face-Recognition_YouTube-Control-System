@@ -25,7 +25,7 @@ services:
 
   playback-decider:
     build: ./services/playback-decider
-    image: ${REGISTRY:-ghcr.io/wkumyeungsu/real-time_face-recognition_youtube-control-system}/playback-decider:${TAG:-dev}
+    image: ${REGISTRY:-ghcr.io/myeongsu-dev/real-time_face-recognition_youtube-control-system}/playback-decider:${TAG:-dev}
     restart: unless-stopped
     env_file:
       - path: .env
@@ -46,7 +46,7 @@ services:
 
   player:
     build: ./services/player
-    image: ${REGISTRY:-ghcr.io/wkumyeungsu/real-time_face-recognition_youtube-control-system}/player:${TAG:-dev}
+    image: ${REGISTRY:-ghcr.io/myeongsu-dev/real-time_face-recognition_youtube-control-system}/player:${TAG:-dev}
     restart: unless-stopped
     ports: ["127.0.0.1:${PLAYER_PORT:-8080}:80"]
     depends_on:
@@ -61,7 +61,7 @@ services:
   recorder:
     # zt/#(log·face·status…)와 broker 로그·통계를 받아 logs/zt.log(사람용)·logs/zt.jsonl(원본)에 쌓는다
     build: ./services/recorder
-    image: ${REGISTRY:-ghcr.io/wkumyeungsu/real-time_face-recognition_youtube-control-system}/recorder:${TAG:-dev}
+    image: ${REGISTRY:-ghcr.io/myeongsu-dev/real-time_face-recognition_youtube-control-system}/recorder:${TAG:-dev}
     restart: unless-stopped
     env_file:
       - path: .env
